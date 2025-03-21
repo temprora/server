@@ -1,4 +1,5 @@
 let usersInRoom = {}
+
 function createRoom(roomId) {
   usersInRoom[roomId] = 1
 }
