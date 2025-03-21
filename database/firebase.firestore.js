@@ -1,11 +1,5 @@
-const { doc, getDoc, increment, setDoc, updateDoc } = require('firebase/firestore')
+const { doc, getDoc, increment, updateDoc } = require('firebase/firestore')
 const { firebaseFirestore } = require('./firebase.init.js')
-
-async function saveToFirestore(path, data) {
-  const docRef = doc(firebaseFirestore, path)
-  await setDoc(docRef, data)
-  return 'saved'
-}
 
 async function loadFromFirestore(path) {
   const docRef = doc(firebaseFirestore, path)
@@ -18,4 +12,4 @@ async function increaseTo(path, field, quantity = 1) {
   await updateDoc(docRef, { [field]: increment(quantity) })
 }
 
-module.exports = { saveToFirestore, loadFromFirestore, increaseTo }
+module.exports = { loadFromFirestore, increaseTo }
