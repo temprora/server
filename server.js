@@ -8,7 +8,6 @@ const disconnection = require('./io/connection/disconnection')
 const PORT = process.env.PORT || 8080
 const ALLOWED_ORIGINS = process.env.ALLOWED_ORIGINS?.split(',') || [
   'https://temprora.web.app',
-  'http://localhost:3000',
 ]
 
 const io = new Server(PORT, {

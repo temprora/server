@@ -7,6 +7,10 @@ const {
 function roomJoin(io, socket) {
   socket.on('join-room', (roomId, userName = 'Anonymous') => {
     if (!roomId) return
+    if (!usersQuantity(roomId)) {
+      socket.emit('empty-room', roomId)
+      return
+    }
 
     if (socket.currentRoom) {
       socket.leave(socket.currentRoom)
